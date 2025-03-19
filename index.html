@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>seniorinc.works</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <h1>"Welcome to Senior Inc."</h1>
+
+            <script>
+                // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        // Fetch IP address using a free service
+        fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+        document.getElementById('ip-address').textContent = data.ip;
+        })
+        .catch(error => {
+        console.error('Error fetching IP address:', error);
+        });
+
+        // Calculate page load time and TTFB
+            document.addEventListener('DOMContentLoaded', function() {
+            const loadEndTime = new Date().getTime();
+            const startTime = performance.timing.navigationStart;
+            const loadTime = (loadEndTime - startTime) / 1000; // Convert milliseconds to seconds
+            document.getElementById('load-time').textContent = loadTime.toFixed(2); // Displaying with two decimal places
+
+        // Calculate TTFB
+        const ttfb = (performance.timing.responseStart - performance.timing.navigationStart) / 1000; // Convert milliseconds to seconds
+        document.getElementById('ttfb').textContent = ttfb.toFixed(2); // Displaying with two decimal places
+        });
+
+        // JavaScript to toggle the visibility of FAQ answers
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Function to scroll smoothly to a specific section after closing the sidebar
+        function scrollToSection(target) {
+        w3_close(); // Close the sidebar
+        setTimeout(function() {
+        document.querySelector(target).scrollIntoView({
+        behavior: 'smooth'
+        });
+        }, 250); // Add a slight delay for closing the sidebar animation to complete
+        }
+
+// Function to check SSL certificate status
+function checkSSL() {
+const originDomain = window.location.hostname;
+const proxyUrl = 'https://api.allorigins.win/raw?url=';
+const apiUrl = `https://api.ssllabs.com/api/v3/analyze?host=${originDomain}`;
+
+fetch(proxyUrl + apiUrl)
+.then(response => response.text())
+.then(data => {
+console.log('SSL API Response:', data); // Log API response
+try {
+const jsonData = JSON.parse(data); // Attempt to parse JSON
+// Check if SSL check is successful
+if (jsonData.status === 'READY') {
+document.getElementById('ssl-icon').className = 'fas fa-lock'; // Change class to set the lock icon
+document.getElementById('ssl-text').innerHTML = `SSL certificate is valid for ${originDomain}`;
+document.getElementById('ssl-icon').style.color = 'green'; // Set icon color to green
+} else {
+document.getElementById('ssl-icon').className = 'fas fa-exclamation-triangle'; // Change class to set the warning icon
+document.getElementById('ssl-text').innerHTML = `SSL certificate is invalid or not found for ${originDomain}. <br><a href="https://docs.webhostmost.com/web-control-panel/security-management/ssl-certificates#quick-intro" target="_blank">Learn how to enable it</a>`;
+document.getElementById('ssl-icon').style.color = 'red'; // Set icon color to red
+}
+} catch (error) {
+console.error('Error parsing JSON:', error);
+// Show SSL check error
+document.getElementById('ssl-text').innerText = `Error checking SSL: Unexpected response format`;
+document.getElementById('ssl-icon').style.color = 'red'; // Set icon color to red
+}
+// Show SSL result
+document.querySelector('.ssl-loader').style.display = 'none';
+document.querySelector('.ssl-result').style.display = 'block';
+})
+.catch(error => {
+console.error('Error checking SSL:', error);
+// Show SSL check error
+document.getElementById('ssl-text').innerText = `Error checking SSL: ${error.message}`;
+document.getElementById('ssl-icon').style.color = 'red'; // Set icon color to red
+// Hide SSL loader
+document.querySelector('.ssl-loader').style.display = 'none';
+// Show SSL result
+document.querySelector('.ssl-result').style.display = 'block';
+});
+}
+
+// Call SSL check function
+checkSSL();
+
+
+        // Get the current domain name
+        var currentDomain = window.location.hostname;
+
+        // Find the span element where you want to insert the domain name
+        var domainSpan = document.getElementById("domainName");
+
+        // Insert the domain name into the span element
+        domainSpan.textContent = currentDomain;
+
+// Enable tooltips on mobile devices
+$('.tooltip').on('click', function() {
+$(this).find('.tooltiptext').toggleClass('show');
+});
+            </script>
+
+</body>
+
+</html>
