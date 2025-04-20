@@ -5,40 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="no index">
-    <link rel="icon" type="image/png" href="/favicon.svg">
+
+<!--    <link rel="icon" type="image/png" href="/favicon.svg">-->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <div class="top-buttons">
         <button onclick="smoothScroll('home')">Home</button>
         <button onclick="smoothScroll('about')">About</button>
+        <button onclick="smoothScroll('news')">News</button>
         <button onclick="smoothScroll('contact')">Contact</button>
     </div>
 
+
+
+
+
     <section id="home">
-        <div class="cloudy-text">Welcome to Senior Inc.</div>
-        <div class="bottom-text">Work in Progress</div>
+        <div class="home-content">
+            <img class="photo" src="img/photoHome.png" alt="Photo of Senior Inc."  >
+        </div>
+        <div class="text-home">
+            <h1>Welcome to Senior Inc.</h1>
+        </div>
+
     </section>
 
-    <section id="about">
-        <div class="cloudy-text">About Us</div>
-        <div class="section-content">
-            <p class="bottom-text">We mostly manage school and personal projects</p>
-            <p>Senior Inc. is still work in progress</p>
-            <p>Any of this is not final</p>
-        </div>
-    </section>
+<!--    <section id="about">-->
+<!--        <div class="cloudy-text">About Us</div>-->
+<!--        <div class="section-content">-->
+<!--            <p class="bottom-text">We mostly manage school and personal projects</p>-->
+<!--            <p>Senior Inc. is still work in progress</p>-->
+<!--            <p>Any of this is not final</p>-->
+<!--        </div>-->
+<!--    </section>-->
 
-    <section id="contact">
-        <div class="cloudy-text">Contact Us</div>
-        <div class="section-content">
-            <p class="bottom-text">Get in touch with our team</p>
-            <div class="contact-form">
-                <div class="bottom-text">michaljobless@gmail.com</div>
-            </div>
-        </div>
-    </section>
+<!--    <section id="contact">-->
+<!--        <div class="cloudy-text">Contact Us</div>-->
+<!--        <div class="section-content">-->
+<!--            <p class="bottom-text">Get in touch with our team</p>-->
+<!--            <div class="contact-form">-->
+<!--                <div class="bottom-text">michaljobless@gmail.com</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <script>
         function smoothScroll(targetId) {
